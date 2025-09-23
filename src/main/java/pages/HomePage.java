@@ -11,8 +11,7 @@ public class HomePage {
 		this.driver=driver;
 	}
 	
-	By SignupLogin = By.xpath("//a[text()=' Signup / Login']");
-	
+	By SignupLogin = By.xpath("//a[text()=' Signup / Login']");	
 	
 	public void SignupLoginClick() {
 		driver.findElement(SignupLogin).click();
