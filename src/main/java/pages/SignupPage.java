@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class SignupPage {
 	
@@ -10,6 +11,8 @@ public class SignupPage {
 	public SignupPage(WebDriver driver) {
 		this.driver=driver;
 	}
+	
+	By LoginFormHeading = By.xpath("//div[@class='signup-form']/h2");
 	
 	By NameInput = By.name("name");
 	By EmailInput = By.xpath("//div[@class='signup-form']/form/input[@name='email']");
@@ -37,21 +40,42 @@ public class SignupPage {
 	
 	By CreateAccountBtn = By.xpath("//button[text()='Create Account']");
 	
+	By AccountCreatedMsg = By.xpath("//*[text()='Account Created!']");
+	
+	By ContinueBtn = By.xpath("//*[text()='Continue']");
+	
+	By DeleteAccount = By.xpath("//*[text()=' Delete Account']");
+	
+	By AccountDeletedMsg = By.xpath("//*[contains(@class,'title')]");
+	
+	
+	public String getSignupFormHeading() {
+		return driver.findElement(LoginFormHeading).getText();
+	}
+	
 	public void Signup(String Name, String Email) {
 		
 		driver.findElement(NameInput).sendKeys(Name);		
 		driver.findElement(EmailInput).sendKeys(Email);
+		
+	}
+	
+	public void SignupBtnClick() {
 		driver.findElement(SignupButton).click();
 	}
 	
-	public void EnterAccountInfo(String Password, String day, String month, String year) {
+	public void EnterAccountInfo(String Password, String day, String month, String year){
 		
 		driver.findElement(Title).click();
 		driver.findElement(PasswordInput).sendKeys(Password);
 		
-		driver.findElement(Day).sendKeys(day);
+		new Select(driver.findElement(Day)).selectByValue(day);
+		new Select(driver.findElement(Month)).selectByVisibleText(month);
+		new Select(driver.findElement(Year)).selectByValue(year);
+		
+		/*driver.findElement(Day).sendKeys(day);
 		driver.findElement(Month).sendKeys(month);
-		driver.findElement(Year).sendKeys(year);
+		driver.findElement(Year).sendKeys(year);*/
 		
 		driver.findElement(NewsletterCheckbox).click();
 		driver.findElement(OffersCheckbox).click();
@@ -78,7 +102,9 @@ public class SignupPage {
 	}
 	
 	public void Country(String Country) {
-		driver.findElement(CountryInput).sendKeys(Country);
+		
+	//	driver.findElement(CountryInput).sendKeys(Country);
+	new Select(driver.findElement(CountryInput)).selectByVisibleText(Country);
 	}
 	
 	public void StateCity(String State, String City, String Zipcode) {
@@ -95,4 +121,22 @@ public class SignupPage {
 	public void CreateAccount() {
 		driver.findElement(CreateAccountBtn).click();
 	}
+	
+	public String getAccountCreatedMsg() {
+		return driver.findElement(AccountCreatedMsg).getText();
+	}
+	
+	public void ContinueBtnClick() {
+		driver.findElement(ContinueBtn).click();
+	}
+	
+	public void DeleteAccountBtnClick() {
+		driver.findElement(DeleteAccount).click();
+	}
+	
+	public String getAccountDeletedMsg() {
+		return driver.findElement(AccountDeletedMsg).getText();
+	}
+	
+	
 }

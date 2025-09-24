@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="AutomationExerciseApp_practice" verbose="1">
+
+	<test name="AutomationExercise Tests">
+		<classes>
+			<class name="tests.login.TC02_LoginValidTest"/>			
+			<class name ="tests.login.TC04_LogoutTest" />
+		</classes>
+	</test>
+
+</suite>

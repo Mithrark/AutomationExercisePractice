@@ -5,14 +5,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeClass;
 
 
 public class Base_Test {
 
 	public WebDriver driver;
 
-	@BeforeMethod
+	@BeforeClass
 	public void setup(){
 		
 		
@@ -27,7 +27,7 @@ public class Base_Test {
 		
 		
 		driver.manage().window().maximize();
-		driver.get("https://www.automationexercise.com/");
+		driver.get(ConfigReader.URL);
 	}
 	
 	@AfterMethod
