@@ -48,6 +48,7 @@ public class SignupPage {
 	
 	By AccountDeletedMsg = By.xpath("//*[contains(@class,'title')]");
 	
+	By EmailAlreadyExistMsg = By.xpath("//div[@class='signup-form']/form/p");
 	
 	public String getSignupFormHeading() {
 		return driver.findElement(LoginFormHeading).getText();
@@ -138,5 +139,8 @@ public class SignupPage {
 		return driver.findElement(AccountDeletedMsg).getText();
 	}
 	
+	public String getEmailAlreadyExistMsg() {
+		return driver.findElement(EmailAlreadyExistMsg).getText();
+	}
 	
 }
