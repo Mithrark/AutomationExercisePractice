@@ -21,7 +21,7 @@ public class Base_Test {
 		options.addArguments("--user-data-dir=" + userProfile);
 		
 		//to avoid password popup - using incognito
-		options.addArguments("--incognito");
+		//options.addArguments("--incognito");
 		
 		driver = new ChromeDriver(options);
 		

@@ -3,14 +3,14 @@
 <suite name="Failed suite [AutomationExerciseApp_practice]">
   <test thread-count="5" name="AutomationExercise Tests(failed)">
     <classes>
-      <class name="tests.login.TC04_LogoutTest">
+      <class name="tests.login.TC01_RegisterUserTest">
         <methods>
-          <include name="LogOut"/>
-          <include name="tearDown"/>
+          <include name="RegisterUser"/>
           <include name="Setup"/>
+          <include name="tearDown"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- tests.login.TC04_LogoutTest -->
+      </class> <!-- tests.login.TC01_RegisterUserTest -->
     </classes>
   </test> <!-- AutomationExercise Tests(failed) -->
 </suite> <!-- Failed suite [AutomationExerciseApp_practice] -->
