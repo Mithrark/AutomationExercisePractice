@@ -49,6 +49,18 @@ public class ProductsPage {
 	//Brand in Product details page
 	By Brand = By.xpath("//div[@class='product-information']/p[4]");
 	
+	//Search product input
+	By SearchInput = By.name("search");
+	
+	//Search button
+	By Searchbtn = By.id("submit_search");
+	
+	//Searched product text
+	By SearchedProductTxt = By.xpath("//*[@class='title text-center']");
+	
+	//Products visible
+	String Products = "//div[@class='productinfo text-center']/p[contains(text(),'%s')]";
+	
 	public void ClickProducts() {
 		driver.findElement(ProductsLink).click();
 	}
@@ -117,5 +129,27 @@ public class ProductsPage {
 	//Brand in Product details page
 	public String getBrandText() {
 		return driver.findElement(Brand).getText().replace("Brand: ", "");
+	}
+	
+	
+	//Search product
+	public void SearchProduct(String Product) {
+		
+		driver.findElement(SearchInput).sendKeys(Product);
+		
+		driver.findElement(Searchbtn).click();
+	}
+	
+	//get Searched Product text
+	public String getSearchedProductTxt() {
+		return driver.findElement(SearchedProductTxt).getText();
+	}
+	
+	//Products visible as per search
+	public By SearchedProduct(String SearchName) {
+		return By.xpath(String.format(Products, SearchName));
+	}
+	public String getSearchedProduct(String SearchName) {
+		return driver.findElement(SearchedProduct(SearchName)).getText();
 	}
 }
